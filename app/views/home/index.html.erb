@@ -1,0 +1,26 @@
+Welcome to my world of Rails Experiments.
+
+<h3>Following users have signed up.</h3>
+<% @users.each do |user| %>
+  <p>User: <%= user.name %> </p>
+<% end %>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Edit account', edit_user_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Sign up', new_user_registration_path)  %>
+  </li>
+<% end %>
+
